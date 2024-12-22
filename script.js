@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 const search = document.querySelector(".searc-box button");
 const weatherBox = document.querySelector(".weather-box");
 const weatherDetails = document.querySelector(".weather-details");
-
+const error = document.querySelector(".not-found");
 search.addEventListener("click", function () {
     const APIKey = 'bd41d9c1dcb9276402df6942332334ee';
     const city = document.querySelector(".searc-box input").value;
@@ -15,6 +15,20 @@ search.addEventListener("click", function () {
         .then(response => response.json())
 
         .then(json => {
+            if (json.cod === "404") {
+                container.style.height=' 400px';
+                weatherBox.classList.remove('active');
+                weatherDetails.classList.remove('active');
+                forecastContainer.classList.remove('active');
+                error.classList.add('active');
+                return;
+            }
+            container.style.height=' 500px';
+            weatherBox.classList.add('active');
+            weatherDetails.classList.add('active');
+            forecastContainer.classList.add('active'); 
+            error.classList.remove('active'); 
+
             const image = document.querySelector(".weather-box img");
             const temp = document.querySelector(".weather-box .temprature");
             const description = document.querySelector(".weather-box .description");
