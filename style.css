@@ -72,12 +72,20 @@ body {
 .weather-box {
   margin-bottom: 15px;
 }
-/* .weather-box,
+.weather-box,
 .weather-details,
-.forecast-item-container
+.forecast-item-container,
+.not-found
 {
   visibility: hidden;
-} */
+}
+.weather-box.active,
+.weather-details.active,
+.forecast-item-container.active,
+.not-found.active
+{
+  visibility: visible;
+}
 
 .weather {
   display: flex;
@@ -200,18 +208,13 @@ body {
 }
 
 .not-found {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+position: absolute;
+  top: 0%;
+  left:11%;
+  width:100%;
   text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
-  margin-top: 20px;
-  animation: fadeIn 0.8s ease-in-out;
+  margin-top:110px;
+
 }
 
 .not-found .box {
