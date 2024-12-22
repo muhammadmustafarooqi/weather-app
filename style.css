@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+  /* background: linear-gradient(135deg, #6db3f2, #1e8bc3); */
+  background-image: url(./images/background1.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  text-align: center;
+  width:320px;
+  animation: popUp 1s ease-out;
+}
+
+.searc-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.searc-box input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  flex-grow: 1;
+  padding: 0 8px;
+  font-size: 0.9rem;
+}
+
+.searc-box i {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.searc-box button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.weather-box {
+  margin-bottom: 15px;
+}
+/* .weather-box,
+.weather-details,
+.forecast-item-container
+{
+  visibility: hidden;
+} */
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.weather img {
+  width: 80px;
+  margin-bottom: 8px;
+}
+
+.weather .temprature {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+.weather .description {
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  margin-top: 4px;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+}
+
+.weather-details .humidity,
+.weather-details .wind {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding:5px 11px ;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  animation: slideIn 1.5s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.weather-details .humidity:hover,
+.weather-details .wind:hover {
+  transform: scale(1.05);
+}
+
+.weather-details i {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.weather-details .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.weather-details .text span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.weather-details .text p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+.forecast-item-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.forecast-item-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.forecast-item-container::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0, 0.1);
+  border-radius:99px;
+}
+
+.forecast-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px;
+  min-width: 70px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+  animation: popUp 0.8s ease;
+}
+
+.forecast-item:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.forecast-item-date {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.forecast-item-image {
+  width: 35px;
+  margin-bottom: 8px;
+}
+
+.forecats-item-temp {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.not-found {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  margin-top: 20px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.not-found .box {
+  max-width: 250px;
+}
+
+.not-found img {
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.not-found p {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .not-found {
+    padding: 15px;
+  }
+
+  .not-found img {
+    max-width: 120px;
+  }
+
+  .not-found p {
+    font-size: 1rem;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
